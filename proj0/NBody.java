@@ -1,6 +1,6 @@
 public class NBody {
-    final static double G = 6.67e-11;
-    final static String background = "images/starfield.jpg";
+    private final static double G = 6.67e-11;
+    private final static String background = "images/starfield.jpg";
     public static double readRadius(String fileName) {
         In in = new In(fileName);
         int numPlanets = in.readInt();
