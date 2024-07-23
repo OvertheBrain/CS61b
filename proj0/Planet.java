@@ -29,6 +29,16 @@ public class Planet {
         return Math.sqrt(Math.pow((this.xxPos - p.xxPos), 2) + Math.pow((this.yyPos - p.yyPos), 2));
     }
 
+    public double calcForceExertedByX(Planet p){
+        double G = 6.67e-11;
+        return this.calcForceExertedBy(p) * (p.xxPos - this.xxPos) / this.calcDistance(p);
+    }
+
+    public double calcForceExertedByY(Planet p){
+        double G = 6.67e-11;
+        return this.calcForceExertedBy(p) * (p.yyPos - this.yyPos) / this.calcDistance(p);
+    }
+
     public double calcForceExertedBy(Planet p){
         double G = 6.67e-11;
         return G * this.mass * p.mass / Math.pow(this.calcDistance(p), 2);
