@@ -39,12 +39,12 @@ public class LinkedListDeque<T> implements Deque<T> {
     }
 
     @Override
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return this.size == 0;
     }
 
     @Override
-    public int size(){
+    public int size() {
         return this.size;
     }
 
@@ -100,7 +100,7 @@ public class LinkedListDeque<T> implements Deque<T> {
         return node.item;
     }
 
-    public T getRecursive(int index){
+    public T getRecursive(int index) {
         return getRecursiveHelper(index, sentinel.next);
     }
 
