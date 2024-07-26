@@ -60,7 +60,7 @@ public class ArrayDeque<T> implements Deque<T>{
     }
 
     private void stuffBeforeRemove() {
-        if (size < items.length / 4 && size > 0) {
+        if (size < items.length / 4 && size >= 16) {
             resize(size * 3);
         }
     }

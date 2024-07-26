@@ -92,9 +92,53 @@ public class LinkedListDequeTest {
 
 	}
 
+	public static void ADequeTest1() {
+		System.out.println("Running ADequetests.\n");
+		Deque<Integer> lld1 = new ArrayDeque<>();
+		lld1.addLast(0);
+		lld1.removeFirst();
+		lld1.addLast(2);
+		lld1.addLast(3);
+		lld1.addLast(4);
+		lld1.isEmpty();
+		lld1.addLast(6);
+		lld1.isEmpty();
+		lld1.addLast(8);
+		lld1.removeFirst();
+
+		boolean passed = checkSize(4, lld1.size());
+		lld1.printDeque();
+
+		printTestStatus(passed);
+	}
+
+	public static void ADequeTest2() {
+		System.out.println("Running ADequetests-get.\n");
+		Deque<Integer> lld1 = new ArrayDeque<>();
+		lld1.addLast(0);
+		lld1.removeFirst();
+		lld1.addLast(2);
+		lld1.addFirst(4);
+		lld1.addLast(8);
+		lld1.addLast(9);
+		lld1.removeLast();
+		lld1.addLast(11);
+		lld1.removeLast();
+		lld1.addFirst(13);
+		lld1.addFirst(14);
+		lld1.addFirst(15);
+
+		boolean passed = checkSize(6, lld1.size());
+		System.out.println(lld1.get(5));
+		lld1.printDeque();
+
+		printTestStatus(passed);
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Running tests.\n");
 		addIsEmptySizeTest();
 		addRemoveTest();
+		ADequeTest2();
 	}
 }
