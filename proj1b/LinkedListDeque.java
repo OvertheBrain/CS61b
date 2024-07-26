@@ -15,36 +15,41 @@ public class LinkedListDeque<T> implements Deque<T> {
 
     private Node sentinel;
     private Node last;
-    public LinkedListDeque(){
+    public LinkedListDeque() {
         sentinel = new Node(null, null, null);
         last = new Node(null, null, sentinel);
         sentinel.next = last;
         this.size = 0;
     }
 
-    public void addFirst(T item){
+    @Override
+    public void addFirst(T item) {
         Node newNode = new Node(item, sentinel.next, sentinel);
         sentinel.next.prev = newNode;
         sentinel.next = newNode;
         this.size += 1;
     }
 
-    public void addLast(T item){
+    @Override
+    public void addLast(T item) {
         Node newNode = new Node(item, last, last.prev);
         last.prev.next = newNode;
         last.prev = newNode;
         this.size += 1;
     }
 
+    @Override
     public boolean isEmpty(){
         return this.size == 0;
     }
 
+    @Override
     public int size(){
         return this.size;
     }
 
-    public void printDeque(){
+    @Override
+    public void printDeque() {
         Node node = sentinel.next;
         while (node != last) {
             System.out.print(node.item.toString() + " ");
@@ -53,8 +58,9 @@ public class LinkedListDeque<T> implements Deque<T> {
         System.out.println();
     }
 
-    public T removeFirst(){
-        if (isEmpty()){
+    @Override
+    public T removeFirst() {
+        if (isEmpty()) {
             return null;
         }
 
@@ -66,8 +72,9 @@ public class LinkedListDeque<T> implements Deque<T> {
         return value;
     }
 
-    public T removeLast(){
-        if (isEmpty()){
+    @Override
+    public T removeLast() {
+        if (isEmpty()) {
             return null;
         }
 
@@ -79,14 +86,15 @@ public class LinkedListDeque<T> implements Deque<T> {
         return value;
     }
 
-    public T get(int index){
-        if (index >= size){
+    @Override
+    public T get(int index) {
+        if (index >= size) {
             System.out.println("Index out of bounds");
             return null;
         }
 
         Node node = sentinel.next;
-        for (int i = 0; i < index; i++){
+        for (int i = 0; i < index; i++) {
             node = node.next;
         }
         return node.item;
@@ -96,8 +104,8 @@ public class LinkedListDeque<T> implements Deque<T> {
         return getRecursiveHelper(index, sentinel.next);
     }
 
-    private T getRecursiveHelper(int index, Node node){
-        if(index == 0){
+    private T getRecursiveHelper(int index, Node node) {
+        if (index == 0) {
             return node.item;
         }
         return getRecursiveHelper(index - 1, node.next);

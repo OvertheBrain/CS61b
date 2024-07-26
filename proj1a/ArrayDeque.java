@@ -1,4 +1,4 @@
-public class ArrayDeque<T> implements Deque<T>{
+public class ArrayDeque<T> implements Deque<T> {
     private int size;
     private T[] items;
     private int nextFirst;
@@ -23,10 +23,14 @@ public class ArrayDeque<T> implements Deque<T>{
         nextLast = 1;
     }
 
-    public void addFirst(T item) {
+    private void stuffBeforeAdd() {
         if (size == items.length - 2 && size > 0) {
             resize(size * 2);
         }
+    }
+
+    public void addFirst(T item) {
+        stuffBeforeAdd();
 
         items[nextFirst] = item;
         nextFirst = (nextFirst - 1 + items.length) % items.length;
@@ -34,9 +38,7 @@ public class ArrayDeque<T> implements Deque<T>{
     }
 
     public void addLast(T item) {
-        if (size == items.length - 2 && size > 0) {
-            resize(size * 2);
-        }
+        stuffBeforeAdd();
 
         items[nextLast] = item;
         nextLast = (nextLast + 1) % items.length;
