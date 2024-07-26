@@ -1,7 +1,6 @@
 public class ArrayDeque<T> implements Deque<T>{
     private int size;
     private T[] items;
-
     private int nextFirst;
     private int nextLast;
 
@@ -25,8 +24,8 @@ public class ArrayDeque<T> implements Deque<T>{
     }
 
     public void addFirst(T item) {
-        if(size == items.length - 2 && size > 0) {
-            resize(size * 3);
+        if (size == items.length - 2 && size > 0) {
+            resize(size * 2);
         }
 
         items[nextFirst] = item;
@@ -35,8 +34,8 @@ public class ArrayDeque<T> implements Deque<T>{
     }
 
     public void addLast(T item) {
-        if(size == items.length - 2 && size > 0) {
-            resize(size * 3);
+        if (size == items.length - 2 && size > 0) {
+            resize(size * 2);
         }
 
         items[nextLast] = item;
@@ -53,15 +52,15 @@ public class ArrayDeque<T> implements Deque<T>{
     }
 
     public void printDeque() {
-        for(int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             System.out.print(get(i).toString() + " ");
         }
         System.out.println();
     }
 
     private void stuffBeforeRemove() {
-        if (size < items.length / 4 && size >= 16) {
-            resize(size * 3);
+        if (size < items.length / 4 && size >= 8) {
+            resize(size * 2);
         }
     }
 

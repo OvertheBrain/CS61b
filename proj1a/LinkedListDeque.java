@@ -1,7 +1,7 @@
 public class LinkedListDeque<T> implements Deque<T> {
     private int size;
 
-    public class Node{
+    private class Node{
         private T item;
         private Node next;
         private Node prev;
@@ -46,7 +46,7 @@ public class LinkedListDeque<T> implements Deque<T> {
 
     public void printDeque(){
         Node node = sentinel.next;
-        while(node != last){
+        while (node != last) {
             System.out.print(node.item.toString() + " ");
             node = node.next;
         }
@@ -86,7 +86,7 @@ public class LinkedListDeque<T> implements Deque<T> {
         }
 
         Node node = sentinel.next;
-        for(int i = 0; i < index; i++){
+        for (int i = 0; i < index; i++){
             node = node.next;
         }
         return node.item;

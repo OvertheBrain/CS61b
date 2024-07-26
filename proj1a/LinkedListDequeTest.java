@@ -93,7 +93,9 @@ public class LinkedListDequeTest {
 	}
 
 	public static void ADequeTest1() {
+
 		System.out.println("Running ADequetests.\n");
+
 		Deque<Integer> lld1 = new ArrayDeque<>();
 		lld1.addLast(0);
 		lld1.removeFirst();
@@ -113,7 +115,9 @@ public class LinkedListDequeTest {
 	}
 
 	public static void ADequeTest2() {
+
 		System.out.println("Running ADequetests-get.\n");
+
 		Deque<Integer> lld1 = new ArrayDeque<>();
 		lld1.addLast(0);
 		lld1.removeFirst();
