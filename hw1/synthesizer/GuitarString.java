@@ -1,8 +1,6 @@
 package synthesizer;
 //package <package name>;
 
-import synthesizer.BoundedQueue;
-
 //Make sure this class is public
 public class GuitarString {
     /** Constants. Do not change. In case you're curious, the keyword final means
